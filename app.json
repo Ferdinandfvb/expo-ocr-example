@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "expo-ocr-example",
-    "slug": "expo-ocr-example",
+    "name": "Schulnotiz",
+    "slug": "schulnotiz-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,25 +18,43 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.example.expoocrexample"
+      "bundleIdentifier": "com.fvb.notescanner",
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.example.expoocrexample"
+      "package": "com.schulnotiz.app",
+      "googleServicesFile": "./google-services.json",
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "017b992e-6e53-431d-9388-54a57843c992"
+        "projectId": "2af312b8-b2b0-46dc-8b25-4c213f662ace"
       }
     },
     "plugins": [
-      "expo-asset"
+      "expo-asset",
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      "@react-native-google-signin/google-signin",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Die App benötigt Zugriff auf Ihre Fotos, um Notizen zu scannen.",
+          "cameraPermission": "Die App benötigt Zugriff auf Ihre Kamera, um Notizen zu scannen."
+        }
+      ]
     ]
   }
 }
